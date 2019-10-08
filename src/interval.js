@@ -43,7 +43,7 @@ class Interval {
      * @returns {boolean}
      */
     includes(interval) {
-
+        return (interval.start>= this.start && interval.end<= this.end);
     };
 
     /**
@@ -63,7 +63,30 @@ class Interval {
      * @returns {Interval[]}
      */
     union(interval) {
-
+        let newStart = this.start;
+        let newEnd = this.end;
+        
+        if(this.end < interval.start ){
+            return [this, interval];
+        }else if( interval.end < this.start){
+            return[interval,this];
+        } 	
+                
+        if(interval.start> this.start){
+            newStart= this.start;
+        }
+        else {
+            newStart= interval.start;
+        }
+        
+        if(interval.end< this.end) {
+            newEnd= this.end;
+        }
+        else{
+            newEnd= interval.end;
+        }
+        
+        return new Interval(newStart,newEnd);
     };
 
     /**
