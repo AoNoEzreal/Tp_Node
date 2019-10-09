@@ -1,4 +1,4 @@
-const BookRepository = require('../../src/book.repository');
+const BookRepository = require('./book.repository');
 
 describe('save method', () => {
     test('should run the db write method once', () => {
