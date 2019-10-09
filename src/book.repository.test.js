@@ -80,3 +80,82 @@ describe('getBookByName method', () => {
         expect(repository.getBookByName('Harry Potter')).toBe(hpotter);
     });
 });
+
+describe('getCountBookAddedByMonth method', () => {
+    test('should return a json object array of a book that has been added to the db all the same month\n' +
+        '   -4 times in 2019-01-04\n'+
+        '   -5 times in 2019-01-05\n'+
+        '   -6 times in 2019-01-06\n' +
+        '[{ year: 2019, month: 1, count: 15, count_cumulative: 15 }]', () => {
+
+        const books = [];
+        for (let i=1 ; i<5 ; i++) {
+            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2019-01-04'});
+        }
+        for (let i=5 ; i<10 ; i++) {
+            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2019-01-05'});
+        }
+        for (let i=10 ; i<16 ; i++) {
+            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2019-01-06'});
+        }
+
+        const dbMock = {
+            get: jest.fn().mockReturnThis(),
+            filter: jest.fn().mockReturnThis(),
+            value: jest.fn().mockReturnValue(books)
+        };
+        const repository = new BookRepository(dbMock);
+
+        expect(repository.getCountBookAddedByMonth('Harry Potter')).toEqual(
+            [
+                { year: 2019, month: 1, count: 15, count_cumulative: 15 }
+            ]);
+    });
+
+    test('should return a json object array of a book that has been added to the db not the same month\n' +
+        '   -3 times in 2019-01-10\n'+
+        '   -2 times in 2019-02-20\n'+
+        '   -1 time  in 2019-03-30\n'+
+        '[{ year: 2019, month: 1, count: 3, count_cumulative: 3 },\n' +
+        ' { year: 2019, month: 2, count: 2, count_cumulative: 5 },\n' +
+        ' { year: 2019, month: 3, count: 1, count_cumulative: 6 }]', () => {
+
+        const books = [];
+        for (let i=1 ; i<4 ; i++) {
+            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2019-01-10'});
+        }
+        for (let i=4 ; i<6 ; i++) {
+            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2019-02-20'});
+        }
+        for (let i=6 ; i<7 ; i++) {
+            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2019-03-30'});
+        }
+
+        const dbMock = {
+            get: jest.fn().mockReturnThis(),
+            filter: jest.fn().mockReturnThis(),
+            value: jest.fn().mockReturnValue(books)
+        };
+        const repository = new BookRepository(dbMock);
+
+        expect(repository.getCountBookAddedByMonth('Harry Potter')).toEqual(
+            [
+                { year: 2019, month: 1, count: 3, count_cumulative: 3 },
+                { year: 2019, month: 2, count: 2, count_cumulative: 5 },
+                { year: 2019, month: 3, count: 1, count_cumulative: 6 }
+            ]);
+    });
+
+    test('should throw when book is not present in the db', () => {
+        const dbMock = {
+            get: jest.fn().mockReturnThis(),
+            filter: jest.fn().mockReturnThis(),
+            value: jest.fn().mockReturnValue([])
+        };
+        const repository = new BookRepository(dbMock);
+
+        expect(() => {
+            repository.getCountBookAddedByMonth('Coco');
+        }).toThrow();
+    });
+});
