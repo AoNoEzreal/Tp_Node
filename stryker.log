@@ -1,0 +1,23 @@
+12:20:29 (11500) INFO ConfigReader Using stryker.conf.js in the current working directory.
+12:20:29 (11500) DEBUG BroadcastReporter Broadcasting to reporters ["html","clear-text","progress","dashboard"]
+12:20:29 (11500) DEBUG ConfigReader Loading config stryker.conf.js
+12:20:29 (11500) WARN InputFileResolver Globbing expression "src/**/*.ts" did not result in any files.
+12:20:29 (11500) DEBUG PluginLoader Loading @stryker-mutator/* from C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator
+12:20:29 (11500) DEBUG PluginLoader Loading plugin "C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\babel-transpiler" (matched with expression @stryker-mutator/*)
+12:20:29 (11500) DEBUG PluginLoader Loading plugin "C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\html-reporter" (matched with expression @stryker-mutator/*)
+12:20:29 (11500) DEBUG PluginLoader Loading plugin "C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\javascript-mutator" (matched with expression @stryker-mutator/*)
+12:20:29 (11500) DEBUG PluginLoader Loading plugin "C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\jest-runner" (matched with expression @stryker-mutator/*)
+12:20:29 (11500) DEBUG PluginLoader Loading plugin "C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\typescript" (matched with expression @stryker-mutator/*)
+12:20:29 (11500) DEBUG PluginLoader Loading plugin "C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\webpack-transpiler" (matched with expression @stryker-mutator/*)
+12:20:29 (11500) DEBUG PluginLoader Loading plugins C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\babel-transpiler
+12:20:29 (11500) DEBUG PluginLoader Loading plugins C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\html-reporter
+12:20:29 (11500) DEBUG PluginLoader Loading plugins C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\javascript-mutator
+12:20:29 (11500) DEBUG PluginLoader Loading plugins C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\jest-runner
+12:20:29 (11500) DEBUG PluginLoader Loading plugins C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\typescript
+12:20:29 (11500) WARN PluginLoader Error during loading "C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\typescript" plugin:
+  Cannot find module 'typescript'
+12:20:29 (11500) DEBUG PluginLoader Loading plugins C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\webpack-transpiler
+12:20:29 (11500) WARN PluginLoader Error during loading "C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\webpack-transpiler" plugin:
+  Cannot find module 'webpack'
+12:20:29 (11500) DEBUG PluginLoader Loading plugins C:\Users\alpha\Documents\FIPA2\TestUnitaire\tp-jest-master\tp-jest-master\node_modules\@stryker-mutator\core\src\reporters\index.js
+12:20:29 (11500) WARN InputFileResolver No files marked to be mutated, Stryker will perform a dry-run without actually mutating anything. You can configure the `mutate` property in your stryker.conf.js file (or use `--mutate` via command line).

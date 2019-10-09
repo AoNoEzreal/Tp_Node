@@ -106,7 +106,23 @@ class Interval {
      * @returns {Interval|null}
      */
     intersection(interval) {
-
+        let newStart = null;
+        let newEnd = null;	
+        if(this.end > interval.start && this.start < interval. start){
+            newStart = interval.start;
+            for (let i= newStart; i<=this.end; i++){
+                if(i > interval.end){ break;}
+                newEnd = i;
+            }
+        }else if (interval.end > this.start && interval.start < this.start){
+            newStart = this.start;
+            for(let j=0 ; j<= interval.end; j++){
+                if(j>this.end) break;
+                newEnd = j ;
+            }
+        }
+        if(newStart == null) return null;
+        return new Interval(newStart,newEnd);
     };
 
     /**
@@ -126,7 +142,25 @@ class Interval {
      * @returns {Interval[]}
      */
     exclusion(interval) {
-
+        if (this.start == interval.start && this.end == interval.end) return null;
+        if(this.overlaps(interval)){
+            let intersection = this.intersection(interval);
+            if((this.end>interval.start && interval.start>this.start) && interval.end> this.end){
+                return [new Interval(this.start,intersection.start),new Interval(intersection.end,interval.end)];
+            }else if((interval.end> this.start && this.start> interval.start) && this.end> interval.end){
+                return [new Interval(interval.start,intersection.start),new Interval(intersection.end,this.end)];
+            }else if((this.end>interval.start && interval.start>this.start) && interval.end< this.end){
+                return [new Interval(this.start,intersection.start),new Interval(intersection.end,this.end)]
+            }else if ((interval.end> this.start && this.start> interval.start) && this.end < interval.end){
+                return [new Interval(interval.start,intersection.start),new Interval(intersection.end,interval.end)];
+            }
+        }else{
+            if(this.start < interval.start){
+                return [this,interval];
+            }else{
+                return [interval,this];
+            }
+        }
     };
 }
 
