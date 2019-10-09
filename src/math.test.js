@@ -19,7 +19,6 @@ test('Test factoriel -10', () => {
     expect(()=> {Util.factorial(-10)}).toThrow(/negative/);
 });
 
-
 describe('isPrime', function () {
 
     test('Test prime de 1 => false', () => {
@@ -45,4 +44,21 @@ describe('isPrime', function () {
             expect(Util.isPrime(n)).toBe(expected);
         }
     );
+<<<<<<< HEAD
+=======
+});
+
+
+
+test('Test somme nombre premier 6 :', () => {
+    expect(Util.sumPrime(6)).toBe(10);
+});
+
+test('Test FizzBuzz :', () => {
+    expect(Util.fizzBuzz(15)).toStrictEqual([1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"]);
+});
+
+test('Test Cipher :', () => {
+    expect(Util.cipher("Test Unitaire")).toBe("Uftu Vojubjsf");
+>>>>>>> af897d229997c5c5665027afa17376a9679d5fd3
 });
