@@ -62,5 +62,4 @@ describe('union', function () {
 	let res = [intervalGenerale,interval2];
         expect(intervalGenerale.union(interval2)).toStrictEqual(res)
     });
-
 });
