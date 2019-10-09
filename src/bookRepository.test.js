@@ -1,4 +1,4 @@
-const BookRepository = require('./book.repository');
+const BookRepository = require('./bookRepository');
 
 describe('Book repository Save', function () {
 
