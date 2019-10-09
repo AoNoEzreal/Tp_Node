@@ -23,7 +23,16 @@ Util.factorial = (n) => {
  * @param {number} n
  * @returns {boolean}
  */
-Util.isPrime = function(n) {
+Util.isPrime = function (n) {
+    if (n === 1 || n === 0) {
+        return false;
+    }
+    if (n < 0) {
+        throw 'Unable to compute prime for n < 0'
+    }
+    for (var i = 2; i < n; i++)
+        if (n % i === 0) return false;
+    return true;
 
 };
 
