@@ -46,3 +46,37 @@ describe('getTotalPrice method', () => {
         expect(repository.getTotalPrice()).toBe(25.74);
     });
 });
+
+describe('getBookByName method', () => {
+    test('should get all the books named "Harry Potter" from the db', () =>  {
+        const hpotter =  [
+            {
+                id: 12,
+                name: 'Harry Potter',
+                price: 17.99,
+                added_at: '2019-05-05'
+            },
+            {
+                id: 13,
+                name: 'Harry Potter',
+                price: 17.99,
+                added_at: '2019-05-05'
+            },
+            {
+                id: 54,
+                name: 'Harry Potter',
+                price: 17.99,
+                added_at: '2019-05-05'
+            }
+        ];
+
+        const dbMock = {
+            get: jest.fn().mockReturnThis(),
+            find: jest.fn().mockReturnThis(),
+            value: jest.fn().mockReturnValue(hpotter)
+        };
+        const repository = new BookRepository(dbMock);
+
+        expect(repository.getBookByName('Harry Potter')).toBe(hpotter);
+    });
+});
