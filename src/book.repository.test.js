@@ -122,13 +122,13 @@ describe('getCountBookAddedByMonth method', () => {
 
         const books = [];
         for (let i=1 ; i<4 ; i++) {
-            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2019-01-10'});
+            books.push({id: i, name: 'The Witcher', price: 12.03, added_at: '2015-07-27'});
         }
         for (let i=4 ; i<6 ; i++) {
-            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2019-02-20'});
+            books.push({id: i, name: 'The Witcher', price: 7.99, added_at: '2017-08-12'});
         }
         for (let i=6 ; i<7 ; i++) {
-            books.push({id: i, name: 'Harry Potter', price: 6.66, added_at: '2019-03-30'});
+            books.push({id: i, name: 'The Witcher ', price: 17.99, added_at: '2019-08-08'});
         }
 
         const dbMock = {
@@ -138,11 +138,11 @@ describe('getCountBookAddedByMonth method', () => {
         };
         const repository = new BookRepository(dbMock);
 
-        expect(repository.getCountBookAddedByMonth('Harry Potter')).toEqual(
+        expect(repository.getCountBookAddedByMonth('Lor')).toEqual(
             [
-                { year: 2019, month: 1, count: 3, count_cumulative: 3 },
-                { year: 2019, month: 2, count: 2, count_cumulative: 5 },
-                { year: 2019, month: 3, count: 1, count_cumulative: 6 }
+                { year: 2019, month: 7, count: 3, count_cumulative: 3 },
+                { year: 2019, month: 8, count: 2, count_cumulative: 5 },
+                { year: 2019, month: 8, count: 1, count_cumulative: 6 }
             ]);
     });
 
