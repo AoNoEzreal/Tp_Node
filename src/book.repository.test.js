@@ -138,10 +138,10 @@ describe('getCountBookAddedByMonth method', () => {
         };
         const repository = new BookRepository(dbMock);
 
-        expect(repository.getCountBookAddedByMonth('Lor')).toEqual(
+        expect(repository.getCountBookAddedByMonth('The Witcher')).toEqual(
             [
-                { year: 2019, month: 7, count: 3, count_cumulative: 3 },
-                { year: 2019, month: 8, count: 2, count_cumulative: 5 },
+                { year: 2015, month: 7, count: 3, count_cumulative: 3 },
+                { year: 2017, month: 8, count: 2, count_cumulative: 5 },
                 { year: 2019, month: 8, count: 1, count_cumulative: 6 }
             ]);
     });
